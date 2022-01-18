@@ -1,6 +1,6 @@
 # Icon-Changer
 - Simple macOS Utility for managing custom icons for files and folders.
-- Credit: [Michael Klement fileicon](https://github.com/mklement0/fileicon)[released under the MIT license.](https://github.com/mklement0/fileicon/blob/master/LICENSE.md)
+- Credit: [Michael Klement fileicon](https://github.com/mklement0/fileicon) [released under the MIT license.](https://github.com/mklement0/fileicon/blob/master/LICENSE.md)
 
 
 
