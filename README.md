@@ -4,7 +4,7 @@
 
 ![Screen Shot ](https://user-images.githubusercontent.com/6248794/150017955-0b428858-c314-4367-97b9-8bedf9c35eb8.png)
 
-Download ➤ [Icon-Changer]()
+Download ➤ [Icon-Changer](https://github.com/chris1111/Icon-Changer/raw/Master/Icon-Changer.zip)
 
 View Usage Video ⬇︎
 
