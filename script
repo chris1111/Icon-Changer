@@ -1,0 +1,101 @@
+#!/bin/bash
+# Vars
+apptitle="Icon-Changer"
+version="1.0"
+# Set Icon directory and file 
+export ICNS=$(dirname "${0}")
+iconfile="$ICNS/AppIcon.icns"
+Sleep 1
+
+for var in "$@"
+do
+response=$(osascript -e 'tell app "System Events" to display dialog "
+Welcome Icon-Changer
+Select an option\n" buttons {"Cancel", "Change Icon File" ,"Change Icon Folder"} default button 3 with title "'"$apptitle"' '"$version"'" with icon POSIX file "'"$iconfile"'"  ')
+
+action=$(echo $response | cut -d ':' -f2)
+
+# Exit if Canceled
+if [ "$action" == "Cancel" ] ; then
+  osascript -e 'display notification "Program close" with title "'"$apptitle"'" subtitle "User Cancel"'
+echo "User Cancel"
+  exit 0
+fi
+
+
+if [ "$action" == "Change Icon File" ] ; then
+  osascript -e 'display notification " " with title "'"$apptitle"'" subtitle "User Select File"'
+
+
+echo "Icon-Changer Start"
+Sleep 1
+
+
+ # Get input folder of file 
+  path=`/usr/bin/osascript << EOT
+    tell application "Finder"
+        activate
+        set folderpath to choose file default location "/$HOME/Desktop" with prompt "Choose the file on which you want to change the icon."
+    end tell 
+    return (posix path of folderpath) 
+  EOT`
+
+ 
+# Exit if Canceled
+if [ "$action" == "Cancell" ] ; then
+  echo "User Cancell! "
+  exit 0
+fi
+
+osascript <<EOD
+  tell application "Icon-Changer"
+      activate
+  end tell
+EOD
+
+Sleep 1
+./Scripts/Icon-Changer set "$path" "$@"
+Sleep 2
+fi
+
+
+if [ "$action" == "Change Icon Folder" ] ; then
+  osascript -e 'display notification " " with title "'"$apptitle"'" subtitle "User Select Folder"'
+
+
+echo "Icon-Changer Start"
+Sleep 1
+
+
+
+ # Get input folder of folder
+  path=`/usr/bin/osascript << EOT
+    tell application "Finder"
+        activate
+        set folderpath to choose folder default location "/$HOME/Desktop" with prompt "Choose the folder on which you want to change the icon."
+    end tell 
+    return (posix path of folderpath) 
+  EOT`
+
+ 
+# Exit if Canceled
+if [ "$action" == "Cancell" ] ; then
+  echo "User Cancell! "
+  exit 0
+fi
+
+osascript <<EOD
+  tell application "Icon-Changer"
+      activate
+  end tell
+EOD
+
+Sleep 1
+./Scripts/Icon-Changer set "$path" "$@"
+Sleep 2
+fi
+
+done
+
+
+
