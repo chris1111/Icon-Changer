@@ -1,5 +1,5 @@
 # Icon-Changer
-### Works from macOS 10.12 to macOS 12.2
+### Works from macOS 10.12 to macOS 12
 
 - Simple macOS Utility for managing custom icons for files and folders.
 - Credit: [Michael Klement fileicon](https://github.com/mklement0/fileicon) ➤ [released under the MIT license.](https://github.com/mklement0/fileicon/blob/master/LICENSE.md)
